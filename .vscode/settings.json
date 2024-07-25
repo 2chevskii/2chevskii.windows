@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "inventory": "properties",
+    "test.yml": "ansible"
+  }
+}

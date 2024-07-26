@@ -1,17 +1,13 @@
-namespace: dvchevskii
+---
+namespace: 2chevskii
 name: windows
+description: Custom modules for Windows automation
 version: 1.0.0
-readme: README.md
 authors:
   - 2CHEVSKII <prsroman3@gmail.com>
-description: Custom modules for Windows automation
-license:
-  - MIT
-tags: [windows, powershell, winget]
-repository: https://github.com/2chevskii/dvchevskii.windows.git
-documentation: http://docs.example.com
-homepage: http://github.com/2chevskii/dvchevskii.windows
-issues: https://github.com/2chevskii/dvchevskii.windows/issues
+readme: README.md
+license_file: LICENSE
+tags: [windows, powershell, winget, packaging, package_management]
 
 build_ignore:
   - .venv
@@ -21,3 +17,8 @@ build_ignore:
   - .editorconfig
   - .gitignore
   - requirements.txt
+
+repository: https://github.com/2chevskii/dvchevskii.windows.git
+documentation: http://github.com/2chevskii/dvchevskii.windows
+homepage: http://github.com/2chevskii/dvchevskii.windows
+issues: https://github.com/2chevskii/dvchevskii.windows/issues

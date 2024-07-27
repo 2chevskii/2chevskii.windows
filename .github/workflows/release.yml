@@ -1,0 +1,27 @@
+on:
+  push:
+    tags: [v*.*]
+jobs:
+  build:
+    uses: ./.github/workflows/_build.yml
+  draft-release:
+    runs-on: ubuntu-22.04
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: 2chevskii.windows
+          path: dist/
+      - id: extract_release_name
+        run: echo "release_name=$(echo $GITHUB_REF | cut -d 'v' -f 2)" >> $GITHUB_OUTPUT
+      - uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          tag_name: ${{ github.ref_name }}
+          name: ${{ steps.extract_release_name.outputs.release_name }}
+          files: dist/*.tar.gz
+          body: |
+            ## Changelog here
+          repository: 2chevskii/dvchevskii.windows
+          token: ${{ github.token }}

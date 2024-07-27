@@ -25,3 +25,5 @@ jobs:
             ## Changelog here
           repository: 2chevskii/dvchevskii.windows
           token: ${{ github.token }}
+    permissions:
+      contents: write

@@ -23,7 +23,7 @@ jobs:
           files: dist/*.tar.gz
           body: |
             ## Changelog here
-          repository: 2chevskii/dvchevskii.windows
+          repository: 2chevskii/2chevskii.windows
           token: ${{ github.token }}
     permissions:
       contents: write

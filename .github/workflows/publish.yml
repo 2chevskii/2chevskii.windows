@@ -10,8 +10,14 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
-      # - uses: robinraju/release-downloader@v1
-      #   with:
-      #     repository: 2chevskii/dvchevskii.windows
-      #     tag: ${{ github.ref_name }}
-      # - run: ansible-galaxy collection publish --api-key
+      - id: extract_version
+        run: echo "version=$(echo '${{ github.event.release.tag_name }}' | cut -d 'v' -f 2-)" >> $GITHUB_OUTPUT
+      - uses: robinraju/release-downloader@v1
+        with:
+          repository: 2chevskii/2chevskii.windows
+          tag: ${{ github.event.release.tag_name }}
+          fileName: "2chevskii-windows-${{ steps.extract_version.outputs.version }}.tar.gz"
+          extract: true
+          out-file-path: "dist/2chevskii-windows-${{ steps.extract_version.outputs.version }}.tar.gz"
+      - run: ansible-galaxy collection publish --api-key '${{ secrets.API_KEY }}' 'dist/2chevskii-windows-${{ steps.extract_version.outputs.version }}.tar.gz'
+    environment: ansible-galaxy

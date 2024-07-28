@@ -18,7 +18,7 @@ jobs:
           repository: 2chevskii/2chevskii.windows
           tag: ${{ github.event.release.tag_name }}
           fileName: "2chevskii-windows-${{ steps.extract_version.outputs.version }}.tar.gz"
-          out-file-path: "dist/2chevskii-windows-${{ steps.extract_version.outputs.version }}.tar.gz"
+          out-file-path: dist/
       - run: ansible-galaxy collection publish --api-key '${{ secrets.API_KEY }}' 'dist/2chevskii-windows-${{ steps.extract_version.outputs.version }}.tar.gz'
     environment:
       name: ansible-galaxy

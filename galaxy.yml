@@ -1,5 +1,5 @@
 ---
-namespace: 2chevskii
+namespace: dvchevskii
 name: windows
 description: Custom modules for Windows automation
 version: 1.0.0
@@ -7,7 +7,7 @@ authors:
   - 2CHEVSKII <prsroman3@gmail.com>
 readme: README.md
 license_file: LICENSE
-tags: [windows, powershell, winget, packaging, package_management]
+tags: [windows, powershell, winget, packaging, package_management, powershell_get]
 
 build_ignore:
   - .venv

@@ -15,11 +15,11 @@ jobs:
         run: echo "version=$(echo '${{ github.event.release.tag_name }}' | cut -d 'v' -f 2-)" >> $GITHUB_OUTPUT
       - uses: robinraju/release-downloader@v1
         with:
-          repository: 2chevskii/2chevskii.windows
+          repository: 2chevskii/dvchevskii.windows
           tag: ${{ github.event.release.tag_name }}
-          fileName: "2chevskii-windows-${{ steps.extract_version.outputs.version }}.tar.gz"
+          fileName: "dvchevskii-windows-${{ steps.extract_version.outputs.version }}.tar.gz"
           out-file-path: dist/
-      - run: ansible-galaxy collection publish --api-key '${{ secrets.API_KEY }}' 'dist/2chevskii-windows-${{ steps.extract_version.outputs.version }}.tar.gz'
+      - run: ansible-galaxy collection publish --api-key '${{ secrets.API_KEY }}' 'dist/dvchevskii-windows-${{ steps.extract_version.outputs.version }}.tar.gz'
     environment:
       name: ansible-galaxy
-      url: https://galaxy.ansible.com/ui/repo/published/2chevskii/windows/?version=${{ steps.extract_version.outputs.version }}
+      url: https://galaxy.ansible.com/ui/repo/published/dvchevskii/windows/?version=${{ steps.extract_version.outputs.version }}

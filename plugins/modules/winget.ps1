@@ -2,7 +2,6 @@
 
 #Requires -Version 5.1
 #Requires -Modules @{ ModuleName = 'Microsoft.WinGet.Client'; ModuleVersion = '1.8.0' }
-#Requires -Module Ansible.ModuleUtils.CamelConversion
 
 #AnsibleRequires -CSharpUtil Ansible.Basic
 
